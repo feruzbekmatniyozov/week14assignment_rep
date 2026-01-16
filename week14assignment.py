@@ -15,12 +15,9 @@ def audit_submissions(staff_dict, submitted_ids):
 
 
 def format_reminders(staff_dict, missing_set):
-    result = []
-    for emp_id in missing_set:
-        dept = staff_dict[emp_id]
-        msg = f"REMINDER: Staff #{emp_id} ({dept})"
-        result.append(msg)
-    return result
+    return [
+        f"REMINDER: Staff #{emp_id} ({staff_dict[emp_id]})" for emp_id in sorted(missing_set)
+    ]
 
 
 staff = [
